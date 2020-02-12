@@ -1,0 +1,14 @@
+body{
+    background-color: #BC8F8F;
+}
+
+#submitbtn{
+    background-color: #EED5D2;
+    border-color: #BC8F8F;
+    color: black;
+}
+
+#form{
+    margin: auto;
+    width: 50%;
+}
