@@ -1,14 +1,96 @@
+/* All body background colour */
 body{
-    background-color: #BC8F8F;
+    background-color: #F0F0F0;
 }
 
+/* Navbar */
+.navbar{
+    border-bottom: 0;
+    margin-bottom: 0;
+    background-color: #3e32a8;
+    border-color: #bfaab9;
+  }
+
+/* For Footer */  
+html, body{
+    height: 100%;
+}
+
+#container{
+    min-height: 100%;
+}  
+
+#main{
+    overflow: auto;
+    padding-bottom: 70px;
+}
+
+#footer{
+    background-color: #707070;
+    position: relative;
+    height: 60px;
+    margin-top: -60px;
+    clear:both;
+}
+
+ /* To make container edges rounded  */
+.rounded {
+    border-radius:.5rem!important
+}
+
+  /* Report page css */
 #submitbtn{
-    background-color: #EED5D2;
-    border-color: #BC8F8F;
-    color: black;
+    background-color: #3e32a8;
+    border-color: #707070;
+    color: white;
 }
 
-#form{
+#reportform{
     margin: auto;
     width: 50%;
+}
+
+/* Home page css */
+  #emailFormCont{
+      width: 500px;
+      height: 300px;
+      display: flex;
+      justify-content: center; 
+      margin-top: 100px; 
+  }
+  
+  #loginbtn{
+    background-color: #3e32a8;
+    border-color: #707070;
+    color: white;
+}
+
+
+  /* Menu page css */
+#foodpic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+#orderFormCont{
+    width: 900px;
+    height: 250px;
+    margin-top: 10px; 
+}
+
+#orderbtn{
+    background-color: #9370DB;
+    border-color: #707070;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Dashboard css */
+.card{
+    display: flex;
+    justify-content: center; 
+    margin-top: 195px; 
 }

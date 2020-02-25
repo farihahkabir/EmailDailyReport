@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+
+  <body>
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm  navbar-dark justify-content-end">
+        <img src="/image/gtlogo.png" width="40px" height="40px">
+        <a class="navbar-brand" href="/">Giga Tech Ltd.</a>
+        <div class="collapse navbar-collapse flex-grow-0 ml-auto mr-1" id="navbarSupportedContent">
+            <!-- <ul class="navbar-nav text-right">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/menu">Lunch Order</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/report">Daily Report</a>
+                </li>
+            </ul> -->
+        </div>
+    </nav>
+
+    <div id="container">
+        <div id="main">
+            <!-- Login -->
+            <div class="container rounded" style="background-color: white;" id="emailFormCont">
+                <form action="/login">
+                <div class="row">
+                    <div>
+                        <div class="form-group" style="margin-top: 40px; color: #7953f9;">
+                            <h5>E-mail:</h5>
+                            <input type="text" class="form-control" placeholder="email@gigatechltd.com" style="background-color: #f0f0f0; color: #7953f9;" required>
+                        </div>
+                        <div class="form-group" style="color: #7953f9;">
+                            <h5>Password:</h5>
+                            <input type="password" class="form-control" placeholder="Password" style="background-color: #f0f0f0; color: #7953f9;" required>
+                        </div>
+                        <div class="form-group text-right">
+                            <input class="btn" type="submit" id="loginbtn" value="Login" onclick="location.href='/dash'">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="page-footer font-small" id="footer">
+        <div class="footer-copyright text-center py-3" style="color: white;">© 2020 Copyright: Giga Tech Ltd.
+        </div>
+    </footer>
+  </body>
+</html>
