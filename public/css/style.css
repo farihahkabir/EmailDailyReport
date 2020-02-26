@@ -56,7 +56,7 @@ html, body{
       height: 300px;
       display: flex;
       justify-content: center; 
-      margin-top: 100px; 
+      margin-top: 10px; 
   }
   
   #loginbtn{
@@ -92,5 +92,13 @@ html, body{
 .card{
     display: flex;
     justify-content: center; 
-    margin-top: 195px; 
+    margin-top: 150px; 
+    margin-bottom: 150px;
+}
+
+/* Register css */
+#registerbtn{
+    background-color: #3e32a8;
+    border-color: #707070;
+    color: white;
 }

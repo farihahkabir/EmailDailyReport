@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm  navbar-dark justify-content-end">
+        <img src="/image/gtlogo.png" width="40px" height="40px">
+        <a class="navbar-brand" href="/">Giga Tech Ltd.</a>
+        <div class="collapse navbar-collapse flex-grow-0 ml-auto mr-1" id="navbarSupportedContent">
+           
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-6 m-auto">
+          <div class="card card-body" style="margin-top: 50px;">
+              <h3 style="color: #3e32a8;">Register</h3><br>
+                <% if(typeof errors != 'undefined') { %>
+                    <% errors.forEach(function(error){ %>
+                        <div class="alert alert-warning alert-dismissable fade show" role="alert">
+                            <%= error.msg %>
+                        </div>
+                    <% }); %>
+                <% } %>
+                <form action="/register" method="POST">
+                    <div class="form-group">
+                        <h6 style="color: #3e32a8;">Name</h6>
+                        <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name" value="<%= typeof name != 'undefined' ? name : '' %>"/>
+                      </div>
+                      <div class="form-group">
+                        <h6 style="color: #3e32a8;">Email</h6>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>"/>
+                      </div>
+                      <div class="form-group">
+                        <h6 style="color: #3e32a8;">Password</h6>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>"/>
+                      </div>
+                      <div class="form-group">
+                        <h6 style="color: #3e32a8;">Confirm Password</h6>
+                        <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>"/>
+                      </div>
+                        <div class="form-group text-right">
+                            <button class="btn" type="submit" id="registerbtn">Register</button>
+                        </div>
+                        <a href="/" style="color: #3e32a8;">Already registered? Log in here.</a>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small" id="footer">
+        <div class="footer-copyright text-center py-3" style="color: white;">© 2020 Copyright: Giga Tech Ltd.
+        </div>
+    </footer>
+  </body>
+</html>

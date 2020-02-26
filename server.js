@@ -5,49 +5,67 @@ var express = require('express'),
     mongo = require('mongodb'),
     bodyParser = require('body-parser');
 
-    var db_url = "mongodb+srv://farihah:farihah@cluster0-0pns7.mongodb.net/test?retryWrites=true&w=majority"; 
-
-    var mongoose = require("mongoose");
-
-    mongoose.connect(db_url, { useNewUrlParser: true });
-    mongoose.connection.on('error', function(err){
-    // console.log(err);
-    console.log('Could not connect to mongodb');
-    })
-
-    // const mongoose = require('mongoose');
-
-    //Configure database
-    // const db = require('./config/keys').MongoURI;
-
-    //Connect to mongo
-    // mongoose.connect(db, { useNewUrlParser: true })
-    //     .then(() => console.log('MongoDB connected'))
-    //     .catch(err => console.log('err'));
+    const expressLayouts = require('express-ejs-layouts');
+    const mongoose = require('mongoose');
+    const flash = require('connect-flash');
+    const session = require('express-session');
+    const passport = require('passport');
+    const { forwardAuthenticated } = require('./config/auth');
 
     var app = express();
+
+    // Passport Config
+    require('./config/passport')(passport);
+
+    //Connect to mongo
+    mongoose.connect('mongodb://localhost:27017/login', { useUnifiedTopology: true, useNewUrlParser: true })
+        .then(() => console.log('MongoDB connected'))
+        .catch(err => console.log('err'));
+
+    //EJS
     app.set('view engine', 'ejs');
+
+    //set static route
     app.use(express.static('public'));
+
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
     var port = 3000;
 
-    //define routes
-    app.get('/', function (req, res) {
-      res.render('home');
+
+    //define home route
+    app.get('/', forwardAuthenticated, function(request, response){
+        response.render('home');
     });
 
-    app.get ('/dash', function (request, response){
-        response.render ('dash');
+    // Express session middleware
+    app.use(
+        session({
+        secret: 'secret',
+        resave: true,
+        saveUninitialized: true
+        })
+    );
+    
+    // Passport middleware
+    app.use(passport.initialize());
+    app.use(passport.session());
+    
+    // Connect flash
+    app.use(require('connect-flash')());
+    
+    // Global variables
+    app.use(function(req, res, next) {
+        res.locals.success_msg = req.flash('success_msg');
+        res.locals.error_msg = req.flash('error_msg');
+        res.locals.error = req.flash('error');
+        next();
     });
 
-    app.get ('/menu', function (request, response){
-        response.render ('menu');
-    });
 
-    app.get ('/report', function (request, response){
-        response.render ('report');
-    });
+    //get route files
+    var routes = require('./routes/routes');
+    app.use('/', routes);
 
     //send report email
     app.post('/send-email', function (req, res) {
@@ -62,7 +80,7 @@ var express = require('express'),
       });
       let mailOptions = {
           from: '"Farihah Kabir" <farihah.gt@gmail.com>', // sender address
-          to: 'monir@gigatechltd.com', // list of receivers
+          to: 'nadahkabir@gmail..com', // list of receivers
         //   subject: 'From ' +req.body.email + ', Date:' +req.body.date, // Subject line
           subject: 'Daily Report: Day ' +req.body.date,
           text: "Tasks Assigned:" + req.body.tasks + "Tasks Completed:" + req.body.completed + "Learnings:" + req.body.learnings, // plain text body
