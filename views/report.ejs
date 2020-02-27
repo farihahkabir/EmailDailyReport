@@ -6,6 +6,11 @@
     <title>Daily Report</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <script type = "text/javascript" >
+        function preventBack(){window.history.forward();}
+         setTimeout("preventBack()", 0);
+         window.onunload=function(){null};
+     </script>
   </head>
 
   <body>
@@ -37,7 +42,7 @@
     <div id="container">
         <div id="main">
             <!-- Report Form -->
-            <div class="container rounded" style="background-color: white; margin-top: 20px;"><br />
+            <div class="container rounded" id="reportCont" style="background-color: white; margin-top: 20px;"><br />
                 <h3 style="text-align: center; color: #3e32a8;">Daily Report</h3><br />
                 <form action="/send-email" method="post">
                 <div class="row">

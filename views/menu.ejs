@@ -6,6 +6,11 @@
     <title>Lunch Order</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <script type = "text/javascript" >
+        function preventBack(){window.history.forward();}
+         setTimeout("preventBack()", 0);
+         window.onunload=function(){null};
+     </script>
   </head>
 
   <body>
@@ -37,23 +42,66 @@
     <div id="container">
         <div id="main">
             <!-- Menu  -->
-            <div class="container"><br />    
-                <img src="/image/foodmenu.jpg" width="900px" height="500px" id="foodpic">
+            <div class="container rounded" style="width: 900px; background-color: white;">
+                <img src="/image/foodmenu.jpg" width="200px" height="75px" id="foodpic">
+                <table class="table table-bordered" style="background-color: white; color: #3e32a8;">
+                    <tbody>
+                        <tr>
+                            <th scope="col"><img src="/image/sunday.PNG" width="75px" height="50px"></th>
+                            <th scope="col">Rice</th>
+                            <th scope="col">Vegetable</th>
+                            <th scope="col">Daal</th>
+                            <th scope="col">Chicken</th>
+                            <th scope="col">Fish</th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><img src="/image/monday.PNG" width="75px" height="50px"></th>
+                            <th scope="col">Rice</th>
+                            <th scope="col">Vegetable</th>
+                            <th scope="col">Daal</th>
+                            <th scope="col">Chicken</th>
+                            <th scope="col">Fish</th>
+                        </tr><tr>
+                            <th scope="col"><img src="/image/tuesday.PNG" width="75px" height="50px"></th>
+                            <th scope="col">Rice</th>
+                            <th scope="col">Vegetable</th>
+                            <th scope="col">Daal</th>
+                            <th scope="col">Chicken</th>
+                            <th scope="col">Fish</th>
+                        </tr><tr>
+                            <th scope="col"><img src="/image/wednesday.PNG" width="75px" height="50px"></th>
+                            <th scope="col">Rice</th>
+                            <th scope="col">Vegetable</th>
+                            <th scope="col">Daal</th>
+                            <th scope="col">Chicken</th>
+                            <th scope="col">Fish</th>
+                        </tr><tr>
+                            <th scope="col"><img src="/image/thursday.PNG" width="75px" height="50px"></th>
+                            <th scope="col">Rice</th>
+                            <th scope="col">Vegetable</th>
+                            <th scope="col">Daal</th>
+                            <th scope="col">Chicken</th>
+                            <th scope="col">Fish</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
             </div>
+            <br>
 
             <!-- Order Form  -->
-            <div class="container" id="orderFormCont" style="background-color: white;">
+            <div class="container rounded" id="orderFormCont" style="background-color: white;">
                 <form action="/place-order" method="post">
                     <br>
-                    <h4 style="color: #9370DB;" id="orderHeader">Order</h4>
+                    <h4 style="color: #3e32a8;" id="orderHeader">Order</h4>
                     <div class="row">
                         <div class="col-sm-8" style="margin-top: 15px;">
-                            <h5 style="color: #9370DB;">Name:</h5>
-                            <input type="text" class="form-control" name="personsName" style="background-color: #f0f0f0; color: #9370DB;" required>
+                            <h5 style="color: #3e32a8;">Name:</h5>
+                            <input type="text" class="form-control" name="personsName" style="background-color: #f0f0f0; color: #3e32a8;" required>
                         </div>
                         <div class="col-sm-4" style="margin-top: 15px;">
-                            <h5 style="color: #9370DB;">Day:</h5>
-                            <input type="text" class="form-control" name="orderDay" style="background-color: #f0f0f0; color: #9370DB;" required>
+                            <h5 style="color: #3e32a8;">Day:</h5>
+                            <input type="text" class="form-control" name="orderDay" style="background-color: #f0f0f0; color: #3e32a8;" required>
                         </div>
                     </div>
                     <div class="form-group text-right" style="margin-top: 20px;">
@@ -63,7 +111,7 @@
             </div>
         </div>
     </div>
-
+    <br>
 
     <!-- Footer  -->
     <footer class="page-footer font-small" id="footer">

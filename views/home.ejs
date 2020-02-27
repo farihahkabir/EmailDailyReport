@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
   </head>
@@ -16,28 +16,31 @@
            
         </div>
     </nav>
-
-    <div id="container">
-        <div id="main">
-            <h3 style="color: #3e32a8; margin-top: 80px; display: flex; justify-content: center;">Login</h3>
-            <div class="container rounded" style="background-color: white;" id="emailFormCont">              
+    <div class="row">
+        <div class="col-md-5 m-auto">
+          <div class="card card-body" style="margin-top: 50px; box-shadow: 10px 10px 5px grey;">
+              <h3 style="color: #3e32a8;">Login</h3><br>
+                <%- include ('./partials/messages.ejs') %>  
                 <form action="/" method="POST">
-                        <div class="form-group" style="margin-top: 40px; color: #3e32a8;">
-                            <h5>E-mail:</h5>
-                            <input type="text" id="email" name="email" class="form-control" placeholder="email@gigatechltd.com" style="background-color: #f0f0f0; color: #7953f9;">
-                        </div>
-                        <div class="form-group" style="color: #3e32a8;">
-                            <h5>Password:</h5>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" style="background-color: #f0f0f0; color: #7953f9;">
-                        </div>
+                      <div class="form-group">
+                        <h6 style="color: #3e32a8;">Email</h6>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>"/>
+                      </div>
+                      <div class="form-group">
+                        <h6 style="color: #3e32a8;">Password</h6>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>"/>
+                      </div>
                         <div class="form-group text-right">
                             <button class="btn" type="submit" id="loginbtn">Login</button>
                         </div>
                         <a href="/register" style="color: #3e32a8;">Do not have an account? Register here.</a>
+                    </div>
+                </div>
                 </form>
             </div>
         </div>
     </div>
+    
     
     <footer class="page-footer font-small" id="footer">
         <div class="footer-copyright text-center py-3" style="color: white;">© 2020 Copyright: Giga Tech Ltd.

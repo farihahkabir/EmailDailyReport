@@ -16,6 +16,30 @@ var express = require('express'),
 
     // Passport Config
     require('./config/passport')(passport);
+    
+    //get route files
+    var routes = require('./routes/routes');
+
+
+     // Express session middleware
+     app.use(session({
+        secret: 'secret',
+        resave: true,
+        saveUninitialized: true
+        })
+    );
+
+    // Connect flash
+    app.use(flash());
+    
+    // Global variables
+    app.use(function(req, res, next) {
+        res.locals.success_msg = req.flash('success_msg');
+        res.locals.error_msg = req.flash('error_msg');
+        res.locals.error = req.flash('error');
+        next();
+    });
+
 
     //Connect to mongo
     mongoose.connect('mongodb://localhost:27017/login', { useUnifiedTopology: true, useNewUrlParser: true })
@@ -24,6 +48,7 @@ var express = require('express'),
 
     //EJS
     app.set('view engine', 'ejs');
+    app.use(express.urlencoded({extended: false}));
 
     //set static route
     app.use(express.static('public'));
@@ -38,33 +63,13 @@ var express = require('express'),
         response.render('home');
     });
 
-    // Express session middleware
-    app.use(
-        session({
-        secret: 'secret',
-        resave: true,
-        saveUninitialized: true
-        })
-    );
+   
     
     // Passport middleware
     app.use(passport.initialize());
     app.use(passport.session());
-    
-    // Connect flash
-    app.use(require('connect-flash')());
-    
-    // Global variables
-    app.use(function(req, res, next) {
-        res.locals.success_msg = req.flash('success_msg');
-        res.locals.error_msg = req.flash('error_msg');
-        res.locals.error = req.flash('error');
-        next();
-    });
 
 
-    //get route files
-    var routes = require('./routes/routes');
     app.use('/', routes);
 
     //send report email
@@ -80,7 +85,7 @@ var express = require('express'),
       });
       let mailOptions = {
           from: '"Farihah Kabir" <farihah.gt@gmail.com>', // sender address
-          to: 'nadahkabir@gmail..com', // list of receivers
+          to: 'monir@gigatechltd.com', // list of receivers
         //   subject: 'From ' +req.body.email + ', Date:' +req.body.date, // Subject line
           subject: 'Daily Report: Day ' +req.body.date,
           text: "Tasks Assigned:" + req.body.tasks + "Tasks Completed:" + req.body.completed + "Learnings:" + req.body.learnings, // plain text body

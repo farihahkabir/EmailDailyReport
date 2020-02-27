@@ -26,6 +26,9 @@ router.get ('/report', ensureAuthenticated, function (request, response){
     response.render ('report');
 });
 
+router.get ('/history', ensureAuthenticated, function (request, response){
+  response.render ('history');
+});
 // Register
 router.post('/register', (req, res) => {
   const { name, email, password, password2 } = req.body;
@@ -99,7 +102,8 @@ router.post('/register', (req, res) => {
 router.post('/', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/dash',
-        failureRedirect: '/'
+        failureRedirect: '/',
+        failureFlash: true
     })(req, res, next);
 });
 

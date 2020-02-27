@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lunch Order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type = "text/javascript" >
+        function preventBack(){window.history.forward();}
+         setTimeout("preventBack()", 0);
+         window.onunload=function(){null};
+     </script>
+  </head>
+
+  <body>
+      <!-- Navbar  -->
+    <nav class="navbar navbar-expand-sm  navbar-dark justify-content-end">
+        <img src="/image/gtlogo.png" width="40px" height="40px">
+        <a class="navbar-brand" href="/">Giga Tech Ltd.</a>
+        <div class="collapse navbar-collapse flex-grow-0 ml-auto mr-1" id="navbarSupportedContent">
+            <ul class="navbar-nav text-right">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/menu">Lunch Order</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/report">Daily Report</a>
+                </li>
+                <li class="nav-item active">    
+                    <a class="nav-link" href="/dash">Dashboard</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">Log out</a>
+                </li>
+                <li class="nav-item active">
+                    <img src="/image/biggerpersonicon.png" width="25px" height="25px" style="margin-top: 5px;">
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="container">
+        <div id="main">
+            <div class="container rounded" style="background-color: white; width: 900px; height: 100px;">
+                
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Footer  -->
+    <footer class="page-footer font-small" id="footer">
+        <div class="footer-copyright text-center py-3" style="color: white;">© 2020 Copyright:
+         Giga Tech Ltd.
+        </div>
+    </footer>
+  </body>
+</html>

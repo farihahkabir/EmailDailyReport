@@ -35,7 +35,7 @@ html, body{
 
  /* To make container edges rounded  */
 .rounded {
-    border-radius:.5rem!important
+    border-radius:.5rem!important;
 }
 
   /* Report page css */
@@ -52,11 +52,7 @@ html, body{
 
 /* Home page css */
   #emailFormCont{
-      width: 500px;
-      height: 300px;
-      display: flex;
-      justify-content: center; 
-      margin-top: 10px; 
+      box-shadow: 10px 10px 5px grey;
   }
   
   #loginbtn{
@@ -72,7 +68,7 @@ html, body{
     margin-left: auto;
     margin-right: auto;
     margin-top: 35px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #orderFormCont{
@@ -82,7 +78,7 @@ html, body{
 }
 
 #orderbtn{
-    background-color: #9370DB;
+    background-color: #3e32a8;
     border-color: #707070;
     color: white;
     margin-top: 20px;
