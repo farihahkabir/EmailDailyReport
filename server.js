@@ -14,6 +14,9 @@ var express = require('express'),
 
     var app = express();
 
+    // Bring in models
+    const Order = require('./models/Order'); 
+
     // Passport Config
     require('./config/passport')(passport);
     
@@ -62,7 +65,6 @@ var express = require('express'),
     app.get('/', forwardAuthenticated, function(request, response){
         response.render('home');
     });
-
    
     
     // Passport middleware
@@ -86,7 +88,7 @@ var express = require('express'),
       let mailOptions = {
           from: '"Farihah Kabir" <farihah.gt@gmail.com>', // sender address
           to: 'monir@gigatechltd.com', // list of receivers
-        //   subject: 'From ' +req.body.email + ', Date:' +req.body.date, // Subject line
+        //   subject: 'From ' +req.body.name + ', Date:' +req.body.date, // Subject line
           subject: 'Daily Report: Day ' +req.body.date,
           text: "Tasks Assigned:" + req.body.tasks + "Tasks Completed:" + req.body.completed + "Learnings:" + req.body.learnings, // plain text body
           html: "<h3>"+ "Tasks Assigned:" +"</h3>" + "<p>"+req.body.tasks + "</p>" + "<h3>"+"Tasks Completed:" +"</h3>" +"<p>" + req.body.completed + "</p>" + "<h3>"+"Learnings:" +"</h3>" +"<p>" + req.body.learnings + "</p>"
@@ -116,8 +118,7 @@ var express = require('express'),
         let mailOptions = {
             from: '"Farihah Kabir" <farihah.gt@gmail.com>', // sender address
             to: 'nadahkabir@gmail.com', // list of receivers
-          //   subject: 'From ' +req.body.email + ', Date:' +req.body.date, // Subject line
-            subject: 'Food Order for ' +req.body.orderDay,
+            subject: req.body.personsName + ': Food Order for ' +req.body.orderDay,
             text: req.body.personsName + "orders food for:" + req.body.orderDay, 
             html: "<b>"+ req.body.personsName +"</b>" + " orders food for: "+ "<b>"+req.body.orderDay+"</b>"
         };
@@ -126,6 +127,7 @@ var express = require('express'),
             if (error) {
                 return console.log(error);
             }
+            
             console.log('Message %s sent: %s', info.messageId, info.response);
                 res.render('menu');
             });
