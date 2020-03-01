@@ -88,8 +88,8 @@ var express = require('express'),
       let mailOptions = {
           from: '"Farihah Kabir" <farihah.gt@gmail.com>', // sender address
           to: 'monir@gigatechltd.com', // list of receivers
-        //   subject: 'From ' +req.body.name + ', Date:' +req.body.date, // Subject line
-          subject: 'Daily Report: Day ' +req.body.date,
+          subject: 'From ' +req.body.name + ', Date:' +req.body.date, // Subject line
+        //   subject: 'Daily Report: Day ' +req.body.date,
           text: "Tasks Assigned:" + req.body.tasks + "Tasks Completed:" + req.body.completed + "Learnings:" + req.body.learnings, // plain text body
           html: "<h3>"+ "Tasks Assigned:" +"</h3>" + "<p>"+req.body.tasks + "</p>" + "<h3>"+"Tasks Completed:" +"</h3>" +"<p>" + req.body.completed + "</p>" + "<h3>"+"Learnings:" +"</h3>" +"<p>" + req.body.learnings + "</p>"
       };
