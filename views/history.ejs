@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Lunch Order</title>
+    <title>Order History</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
-    <script type = "text/javascript" >
+    <script type = "text/javascript">
         function preventBack(){window.history.forward();}
          setTimeout("preventBack()", 0);
          window.onunload=function(){null};
@@ -43,9 +42,25 @@
         <div id="main">
             <div class="container rounded" style="background-color: white; width: 900px; margin-top: 30px;">
                 <br>
-                <h3 style="color: #3e32a8;">Order History</h3>
-                <br>
-                <p style="color: #3e32a8;">Number of Days Food was ordered: </p>
+                <h3 style="color: #3e32a8;">Order History</h3><br>
+                <table id="ordertable" class="table table-bordered" style="background-color: white; color: #3e32a8; text-align: center;">
+                  <tbody>
+                      <tr>
+                        <th scope="col">Serial No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Date</th>
+                      </tr>
+                      <% orders.forEach(function(eachOrder){ %>
+                      <tr>
+                        <td scope="col"></td>
+                        <td scope="col"><%= eachOrder.personsName %></td>
+                        <td scope="col"><%= eachOrder.orderDay %></td>
+                        <td scope="col"><%= eachOrder.orderDate %></td>
+                      </tr>
+                      <% }) %>
+                  </tbody>
+                </table>
                 <br>
             </div>
         </div>

@@ -98,3 +98,21 @@ html, body{
     border-color: #707070;
     color: white;
 }
+
+/* Order table css */
+#ordertable
+{
+    counter-reset: rowNumber;
+}
+
+#ordertable tr > td:first-child
+{
+    counter-increment: rowNumber;
+}
+
+#ordertable tr td:first-child::before
+{
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}

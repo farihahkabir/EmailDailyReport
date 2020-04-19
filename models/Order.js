@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
-    name: {
+    personsName: {
         type: String,
         required: true
     },
-    day: {
+    orderDay: {
+        type: String,
+        required: true
+    },
+    orderDate: {
         type: String,
         required: true
     }
