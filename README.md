@@ -24,6 +24,7 @@
 
 <h4>How to set up:</h4>
 <p>1. Clone the repository: <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository"></a></p>
-<p>2. Open a terminal</p>
-<p>3. Type "nodemon server.js" in the terminal</p>
-<p>4. Open a browser and type in localhost:3000 </p>
+<p>2. Open any text editor (e.g. Atom, Visual Studio Code, Sublime Text, etc)</p>
+<p>3. Open a terminal</p>
+<p>4. Type "nodemon server.js" in the terminal</p>
+<p>5. Open a browser and type in localhost:3000 </p>
