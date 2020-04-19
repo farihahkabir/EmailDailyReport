@@ -77,6 +77,6 @@ var express = require('express'),
     
         
     //run server on port 3000
-    app.listen(port, function(){
-        console.log('Server is running at port: ',port);
+    app.listen(process.env.PORT || port , process.env.IP || 'localhost', function(){
+        console.log('Server is running at port: ');
     });
